@@ -1,0 +1,205 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.3 (lin64) Build 1003341 Sun Aug 31 18:51:36 MDT 2014
+| Date         : Mon Sep  1 13:11:27 2014
+| Host         : xhdl3065 running 64-bit Red Hat Enterprise Linux Client release 5.9 (Tikanga)
+| Command      : upgrade_ip
+| Device       : xc7k325tffg900-2
+-----------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sine_mid'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sine_mid (xilinx.com:ip:dds_compiler:6.0) from (Rev. 4) to (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.2 (win64) Build 911930 Mon May 12 18:57:52 MDT 2014
+| Date         : Sat May 17 07:44:30 2014
+| Host         : XSJRANDYH30 running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7k325tffg900-2
+-----------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sine_mid'
+
+1. Summary
+----------
+
+SUCCESS in the update of sine_mid (xilinx.com:ip:dds_compiler:6.0 (Rev. 4)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.1 (lin64) Build 869706 Tue Mar 18 19:15:21 MDT 2014
+| Date         : Wed Mar 19 22:15:32 2014
+| Host         : xhdl3064 running 64-bit Red Hat Enterprise Linux Workstation release 6.4 (Santiago)
+| Command      : upgrade_ip
+| Device       : xc7k325tffg900-2
+-----------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sine_mid'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of sine_mid from xilinx.com:ip:dds_compiler:5.0 to xilinx.com:ip:dds_compiler:6.0 (Rev. 4)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Warnings
+-----------
+
+WARNING: Latency and initial values of phase for some configurations have changed in v6.0 relative to v5.0
+
+3. Interface Information
+------------------------
+
+Detected external interface differences while upgrading IP 'sine_mid'.
+
+
+-upgraded interface 'event_s_phase_tlast_missing_intf' (xilinx.com:signal:interrupt:1.0) differs from original interface xilinx.com:common:interrupt:1.0
+-upgraded interface 'event_s_phase_tlast_unexpected_intf' (xilinx.com:signal:interrupt:1.0) differs from original interface xilinx.com:common:interrupt:1.0
+-upgraded interface 'event_s_phase_chanid_incorrect_intf' (xilinx.com:signal:interrupt:1.0) differs from original interface xilinx.com:common:interrupt:1.0
+-upgraded interface 'event_s_config_tlast_missing_intf' (xilinx.com:signal:interrupt:1.0) differs from original interface xilinx.com:common:interrupt:1.0
+-upgraded interface 'event_s_config_tlast_unexpected_intf' (xilinx.com:signal:interrupt:1.0) differs from original interface xilinx.com:common:interrupt:1.0
+-upgraded interface 'S_AXIS_PHASE' (xilinx.com:interface:axis:1.0) differs from original interface xilinx.com:axi4:AXI4Stream:1.0
+-upgraded interface 'aclk_intf' (xilinx.com:signal:clock:1.0) differs from original interface xilinx.com:common:clock:1.0
+-upgraded interface 'aresetn_intf' (xilinx.com:signal:reset:1.0) differs from original interface xilinx.com:common:reset:1.0
+-upgraded interface 'aclken_intf' (xilinx.com:signal:clockenable:1.0) differs from original interface xilinx.com:common:clockenable:1.0
+-upgraded interface 'M_AXIS_DATA' (xilinx.com:interface:axis:1.0) differs from original interface xilinx.com:axi4:AXI4Stream:1.0
+-upgraded interface 'S_AXIS_CONFIG' (xilinx.com:interface:axis:1.0) differs from original interface xilinx.com:axi4:AXI4Stream:1.0
+-upgraded interface 'M_AXIS_PHASE' (xilinx.com:interface:axis:1.0) differs from original interface xilinx.com:axi4:AXI4Stream:1.0
+-upgrade has added interface 'event_pinc_invalid_intf'
+-upgrade has added interface 'event_poff_invalid_intf'
+-upgrade has added interface 'event_phase_in_invalid_intf'
+
+4. Customization warnings
+-------------------------
+
+WARNING: Attempt to set value '36' on disabled parameter 'Spurious_Free_Dynamic_Range' is ignored for 'sine_mid'
+
+
+5. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  Please consult the warnings from the previous sections, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:ip:dds_compiler:6.0 -user_name sine_mid
+set_property -dict "\
+  CONFIG.POR_mode false \
+  CONFIG.Output_Frequency12 0 \
+  CONFIG.Output_Frequency13 0 \
+  CONFIG.Output_Frequency14 0 \
+  CONFIG.Output_Frequency15 0 \
+  CONFIG.Output_Frequency16 0 \
+  CONFIG.Phase_Offset_Angles1 0 \
+  CONFIG.Optimization_Goal Auto \
+  CONFIG.Phase_Offset_Angles2 0 \
+  CONFIG.Parameter_Entry Hardware_Parameters \
+  CONFIG.PINC10 0 \
+  CONFIG.Phase_Offset_Angles3 0 \
+  CONFIG.Has_Phase_Out false \
+  CONFIG.PINC11 0 \
+  CONFIG.Phase_Offset_Angles4 0 \
+  CONFIG.PINC12 0 \
+  CONFIG.Phase_Offset_Angles5 0 \
+  CONFIG.PINC13 0 \
+  CONFIG.Phase_Offset_Angles6 0 \
+  CONFIG.Output_Selection Sine \
+  CONFIG.PINC14 0 \
+  CONFIG.Phase_Offset_Angles7 0 \
+  CONFIG.PINC15 0 \
+  CONFIG.Phase_Offset_Angles8 0 \
+  CONFIG.PINC16 0 \
+  CONFIG.Phase_Offset_Angles9 0 \
+  CONFIG.M_PHASE_Has_TUSER Not_Required \
+  CONFIG.Negative_Cosine false \
+  CONFIG.PartsPresent SIN_COS_LUT_only \
+  CONFIG.POFF1 0 \
+  CONFIG.POFF2 0 \
+  CONFIG.Frequency_Resolution 0.4 \
+  CONFIG.POFF3 0 \
+  CONFIG.POFF4 0 \
+  CONFIG.DSP48_Use Minimal \
+  CONFIG.POFF5 0 \
+  CONFIG.Latency 2 \
+  CONFIG.S_PHASE_Has_TUSER Not_Required \
+  CONFIG.Phase_Offset_Angles10 0 \
+  CONFIG.POFF6 0 \
+  CONFIG.Has_ACLKEN false \
+  CONFIG.Negative_Sine false \
+  CONFIG.Phase_Offset_Angles11 0 \
+  CONFIG.POFF7 0 \
+  CONFIG.Phase_Offset_Angles12 0 \
+  CONFIG.POFF8 0 \
+  CONFIG.Phase_Offset_Angles13 0 \
+  CONFIG.POFF9 0 \
+  CONFIG.Phase_Offset_Angles14 0 \
+  CONFIG.Phase_Increment Fixed \
+  CONFIG.Phase_Offset_Angles15 0 \
+  CONFIG.Phase_Offset_Angles16 0 \
+  CONFIG.Latency_Configuration Auto \
+  CONFIG.Memory_Type Auto \
+  CONFIG.Output_Frequency1 0 \
+  CONFIG.Output_Frequency2 0 \
+  CONFIG.DATA_Has_TLAST Not_Required \
+  CONFIG.Output_Frequency3 0 \
+  CONFIG.Has_ARESETn true \
+  CONFIG.Output_Frequency4 0 \
+  CONFIG.Output_Frequency5 0 \
+  CONFIG.Output_Frequency6 0 \
+  CONFIG.Phase_Width 8 \
+  CONFIG.Output_Frequency7 0 \
+  CONFIG.DDS_Clock_Rate 100 \
+  CONFIG.Output_Frequency8 0 \
+  CONFIG.Output_Frequency9 0 \
+  CONFIG.PINC1 0 \
+  CONFIG.Spurious_Free_Dynamic_Range 36 \
+  CONFIG.PINC2 0 \
+  CONFIG.S_PHASE_TUSER_Width 1 \
+  CONFIG.PINC3 0 \
+  CONFIG.PINC4 0 \
+  CONFIG.PINC5 0 \
+  CONFIG.Phase_offset None \
+  CONFIG.Noise_Shaping None \
+  CONFIG.PINC6 0 \
+  CONFIG.PINC7 0 \
+  CONFIG.PINC8 0 \
+  CONFIG.period 1 \
+  CONFIG.PINC9 0 \
+  CONFIG.Component_Name sine_mid \
+  CONFIG.explicit_period false \
+  CONFIG.S_CONFIG_Sync_Mode On_Vector \
+  CONFIG.Output_Width 18 \
+  CONFIG.GUI_Behaviour Coregen \
+  CONFIG.Amplitude_Mode Full_Range \
+  CONFIG.M_DATA_Has_TUSER Not_Required \
+  CONFIG.POFF10 0 \
+  CONFIG.Has_TREADY false \
+  CONFIG.POFF11 0 \
+  CONFIG.POFF12 0 \
+  CONFIG.POFF13 0 \
+  CONFIG.POFF14 0 \
+  CONFIG.POFF15 0 \
+  CONFIG.POFF16 0 \
+  CONFIG.Output_Frequency10 0 \
+  CONFIG.Output_Frequency11 0 \
+  CONFIG.Channels 1 " [get_ips sine_mid]
+
+
