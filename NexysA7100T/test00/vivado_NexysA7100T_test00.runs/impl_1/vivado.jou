@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jan  5 16:51:23 2021
+# Process ID: 18654
+# Current directory: /home/jylee/work2/FPGA/vivado_NexysA7100T_test00/vivado_NexysA7100T_test00.runs/impl_1
+# Command line: vivado -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
+# Log file: /home/jylee/work2/FPGA/vivado_NexysA7100T_test00/vivado_NexysA7100T_test00.runs/impl_1/top.vdi
+# Journal file: /home/jylee/work2/FPGA/vivado_NexysA7100T_test00/vivado_NexysA7100T_test00.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source top.tcl -notrace
