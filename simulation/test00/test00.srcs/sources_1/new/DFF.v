@@ -30,7 +30,7 @@ module DFF(
     reg nQ;
     
     always@(posedge clk) begin
-        Q =D;
-        nQ =~D;
+        Q <=D;
+        nQ <=~D;
     end
 endmodule
