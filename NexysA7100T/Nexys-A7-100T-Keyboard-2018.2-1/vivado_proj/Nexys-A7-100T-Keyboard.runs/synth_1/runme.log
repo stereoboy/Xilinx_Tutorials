@@ -1,0 +1,318 @@
+
+*** Running vivado
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+Sourcing tcl script 'C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+0 Beta devices matching pattern found, 0 enabled.
+couldn't read file "./initialize_custom_commands.tcl": no such file or directory
+    while executing
+"source ./initialize_custom_commands.tcl"
+    (file "C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl" line 7)
+INFO: [Common 17-1463] Init.tcl in C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/init.tcl is not used. Vivado_init.tcl is already sourced.
+source top.tcl -notrace
+Command: synth_design -top top -part xc7a100tcsg324-1 -flatten_hierarchy none -directive RuntimeOptimized -fsm_extraction off
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8848 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 454.566 ; gain = 94.113
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/top.v:26]
+INFO: [Synth 8-6157] synthesizing module 'PS2Receiver' [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/PS2Receiver.v:23]
+INFO: [Synth 8-6157] synthesizing module 'debouncer' [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/debouncer.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'debouncer' (1#1) [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/debouncer.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/PS2Receiver.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'PS2Receiver' (2#1) [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/PS2Receiver.v:23]
+INFO: [Synth 8-6157] synthesizing module 'seg7decimal' [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/Seg_7_Display.v:21]
+INFO: [Synth 8-226] default block is never used [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/Seg_7_Display.v:45]
+INFO: [Synth 8-226] default block is never used [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/Seg_7_Display.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'seg7decimal' (3#1) [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/Seg_7_Display.v:21]
+WARNING: [Synth 8-3848] Net UART_TXD in module/entity top does not have driver. [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/top.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'top' (4#1) [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/hdl/top.v:26]
+WARNING: [Synth 8-3331] design top has unconnected port UART_TXD
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 508.770 ; gain = 148.316
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 508.770 ; gain = 148.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 508.770 ; gain = 148.316
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/constraints/Nexys-A7-100T-Master.xdc]
+Finished Parsing XDC File [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/constraints/Nexys-A7-100T-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/src/constraints/Nexys-A7-100T-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 856.922 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 856.922 ; gain = 496.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 856.922 ; gain = 496.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 856.922 ; gain = 496.469
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "O0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "O1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cnt1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cnt" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 856.922 ; gain = 496.469
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module top 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module debouncer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 2     
++---Registers : 
+	                5 Bit    Registers := 2     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module PS2Receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 2     
+Module seg7decimal 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-3886] merging instance 'keyboard/dataprev_reg[6]' (FDE) to 'keyboard/keycode_reg[6]'
+INFO: [Synth 8-3886] merging instance 'keyboard/dataprev_reg[7]' (FDE) to 'keyboard/keycode_reg[7]'
+INFO: [Synth 8-3886] merging instance 'keyboard/dataprev_reg[0]' (FDE) to 'keyboard/keycode_reg[0]'
+INFO: [Synth 8-3886] merging instance 'keyboard/dataprev_reg[1]' (FDE) to 'keyboard/keycode_reg[1]'
+INFO: [Synth 8-3886] merging instance 'keyboard/dataprev_reg[2]' (FDE) to 'keyboard/keycode_reg[2]'
+INFO: [Synth 8-3886] merging instance 'keyboard/dataprev_reg[3]' (FDE) to 'keyboard/keycode_reg[3]'
+INFO: [Synth 8-3886] merging instance 'keyboard/dataprev_reg[4]' (FDE) to 'keyboard/keycode_reg[4]'
+INFO: [Synth 8-3886] merging instance 'keyboard/dataprev_reg[5]' (FDE) to 'keyboard/keycode_reg[5]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 856.922 ; gain = 496.469
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 856.922 ; gain = 496.469
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 865.336 ; gain = 504.883
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 865.336 ; gain = 504.883
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 865.336 ; gain = 504.883
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 865.336 ; gain = 504.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |     5|
+|3     |LUT1   |     5|
+|4     |LUT2   |     7|
+|5     |LUT3   |    11|
+|6     |LUT4   |    12|
+|7     |LUT5   |     5|
+|8     |LUT6   |    21|
+|9     |MUXF7  |     4|
+|10    |FDRE   |    82|
+|11    |FDSE   |     2|
+|12    |IBUF   |     3|
+|13    |OBUF   |    16|
+|14    |OBUFT  |     1|
++------+-------+------+
+
+Report Instance Areas: 
++------+-------------+------------+------+
+|      |Instance     |Module      |Cells |
++------+-------------+------------+------+
+|1     |top          |            |   176|
+|2     |  keyboard   |PS2Receiver |    96|
+|3     |    debounce |debouncer   |    32|
+|4     |  sevenSeg   |seg7decimal |    57|
++------+-------------+------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 865.336 ; gain = 504.883
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 865.336 ; gain = 156.730
+Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 865.336 ; gain = 504.883
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+36 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 867.492 ; gain = 519.297
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'D:/Github/prerelease/Nexys-A7/Nexys-A7-100T-Keyboard/proj/Nexys-A7-100T-Keyboard.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 867.492 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Nov  1 14:42:51 2018...
