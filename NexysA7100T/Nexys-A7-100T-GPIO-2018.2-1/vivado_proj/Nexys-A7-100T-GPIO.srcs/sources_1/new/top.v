@@ -28,7 +28,7 @@ reg [3:0] tmrVal;
 
 wire [4:0] btnDeBnc;
 
-initial begin
+initial begin : timer_initialization
     tmrCntr = 27'b000000000000000000000000000;
     tmrVal = 4'b0000;
 end
@@ -130,4 +130,116 @@ RGB_controller RGB_Core(.GCLK(CLK),
                         .RGB_LED_1_O({RGB1_Green, RGB1_Blue, RGB1_Red}),
                         .RGB_LED_2_O({RGB2_Green, RGB2_Blue, RGB2_Red})
                         );
+
+//
+// UART
+//
+parameter [17:0] RESET_CNTR_MAX = 18'b110000110101000000; // 100,000,000 * 0.002 = 200,000 = clk cycles per 2 ms
+
+parameter MAX_STR_LEN = 31;
+
+parameter WELCOME_STR_LEN = 31;
+
+parameter BTN_STR_LEN = 24;
+
+reg [MAX_STR_LEN:0] sendStr;
+
+reg strEnd;
+
+reg strIndex;
+
+reg [3:0] btnReg;
+
+wire btnDetect;
+
+assign btnDetect = Assign_btnDetect(btnReg, btnDeBnc);
+function assign_btnDetect(input [3:0] btnreg, input [3:0] btndebnc);
+    if (btnreg[0] == 1'b0 && btndebnc[0] == 1'b1)
+        assign_btnDetect = 1'b1;
+    else if (btnreg[1] == 1'b0 && btndebnc[1] == 1'b1)
+        assign_btnDetect = 1'b1;
+    else if (btnreg[2] == 1'b0 && btndebnc[2] == 1'b1)
+        assign_btnDetect = 1'b1;
+    else if (btnreg[3] == 1'b0 && btndebnc[3] == 1'b1)
+        assign_btnDetect = 1'b1;
+    else
+        assign_btnDetect = 1'b0;
+endfunction
+
+// State Definition
+reg [2:0] UART_STATE;
+localparam
+    RST_REG     = 3'b000,
+    LD_INIT_STR = 3'b001,
+    SEND_CHAR   = 3'b010,
+    RDY_LOW     = 3'b011,
+    WAIT_RDY    = 3'b100,
+    WAIT_BTN    = 3'b101,
+    LD_BTN_STR  = 3'b110;
+
+//
+// reference: https://stackoverflow.com/questions/23507629/parameter-array-in-verilog
+//
+parameter [8*31 - 1:0] WELCOME_STR = {
+    8'h0A, // \n
+    8'h0D, // \r
+    8'h4E, // N
+    8'h45, // E
+    8'h58, // X
+    8'h59, // Y
+    8'h53, // S
+    8'h34, // 4
+    8'h20, // " "
+    8'h44, // D
+    8'h44, // D
+    8'h52, // R
+    8'h20, // " "
+    8'h47, // G
+    8'h50, // P
+    8'h49, // I
+    8'h4F, // O
+    8'h2F, // /
+    8'h55, // U
+    8'h41, // A
+    8'h52, // R
+    8'h54, // T
+    8'h20, // " "
+    8'h44, // D
+    8'h45, // E
+    8'h4D, // M
+    8'h4F, // O
+    8'h21, // !
+    8'h0A, // \n
+    8'h0A, // \n
+    8'h0D  // \r
+    };
+
+parameter [8*24 - 1: 0] BTN_STR = {
+    8'h42,  //B
+    8'h75,  //u
+    8'h74,  //t
+    8'h74,  //t
+    8'h6F,  //o
+    8'h6E,  //n
+    8'h20,  //" "
+    8'h70,  //p
+    8'h72,  //r
+    8'h65,  //e
+    8'h73,  //s
+    8'h73,  //s
+    8'h20,  //" "
+    8'h64,  //d
+    8'h65,  //e
+    8'h74,  //t
+    8'h65,  //e
+    8'h63,  //c
+    8'h74,  //t
+    8'h65,  //e
+    8'h64,  //d
+    8'h21,  //!
+    8'h0A,  //\n
+    8'h0D   //\r
+
+};
+
 endmodule
