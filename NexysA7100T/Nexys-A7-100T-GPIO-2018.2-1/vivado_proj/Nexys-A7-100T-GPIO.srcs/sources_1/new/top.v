@@ -117,7 +117,7 @@ begin : timer_inc_process
     end
 end
 
-debouncer #(.DEBNC_CLOCKS(2**16), .PORT_WIDTH(5)) Inst_btn_debounce(.SIGNAL_I(BTN), .CLK_I(CLK), .SIGNAL_O(btnDebnc));
+debouncer #(.DEBNC_CLOCKS(2**16), .PORT_WIDTH(5)) Inst_btn_debounce(.SIGNAL_I(BTN), .CLK_I(CLK), .SIGNAL_O(btnDeBnc));
 
 
 
@@ -126,48 +126,54 @@ debouncer #(.DEBNC_CLOCKS(2**16), .PORT_WIDTH(5)) Inst_btn_debounce(.SIGNAL_I(BT
 //
 // RGB LED Control
 //
+/*
 RGB_controller RGB_Core(.GCLK(CLK),
                         .RGB_LED_1_O({RGB1_Green, RGB1_Blue, RGB1_Red}),
                         .RGB_LED_2_O({RGB2_Green, RGB2_Blue, RGB2_Red})
                         );
-
+*/
 //
 // UART
 //
 parameter [17:0] RESET_CNTR_MAX = 18'b110000110101000000; // 100,000,000 * 0.002 = 200,000 = clk cycles per 2 ms
 
-parameter MAX_STR_LEN = 31;
+parameter MAX_STR_LEN = 31*8;
 
-parameter WELCOME_STR_LEN = 31;
+parameter WELCOME_STR_LEN = 31*8;
 
-parameter BTN_STR_LEN = 24;
+parameter BTN_STR_LEN = 24*8;
 
 reg [MAX_STR_LEN:0] sendStr;
 
-reg strEnd;
+integer strEnd;
 
-reg strIndex;
+integer strIndex;
 
 reg [3:0] btnReg;
 
+always @(posedge CLK)
+begin : btn_reg_process
+    btnReg <= btnDeBnc[3:0];
+end
+
 wire btnDetect;
 
-assign btnDetect = Assign_btnDetect(btnReg, btnDeBnc);
-function assign_btnDetect(input [3:0] btnreg, input [3:0] btndebnc);
-    if (btnreg[0] == 1'b0 && btndebnc[0] == 1'b1)
+assign btnDetect = assign_btnDetect(btnReg);
+function assign_btnDetect(input [3:0] btnreg);
+    if (btnreg[0] == 1'b0 && btnDeBnc[0] == 1'b1)
         assign_btnDetect = 1'b1;
-    else if (btnreg[1] == 1'b0 && btndebnc[1] == 1'b1)
+    else if (btnreg[1] == 1'b0 && btnDeBnc[1] == 1'b1)
         assign_btnDetect = 1'b1;
-    else if (btnreg[2] == 1'b0 && btndebnc[2] == 1'b1)
+    else if (btnreg[2] == 1'b0 && btnDeBnc[2] == 1'b1)
         assign_btnDetect = 1'b1;
-    else if (btnreg[3] == 1'b0 && btndebnc[3] == 1'b1)
+    else if (btnreg[3] == 1'b0 && btnDeBnc[3] == 1'b1)
         assign_btnDetect = 1'b1;
     else
         assign_btnDetect = 1'b0;
 endfunction
 
 // State Definition
-reg [2:0] UART_STATE;
+reg [2:0] uartState;
 localparam
     RST_REG     = 3'b000,
     LD_INIT_STR = 3'b001,
@@ -177,9 +183,23 @@ localparam
     WAIT_BTN    = 3'b101,
     LD_BTN_STR  = 3'b110;
 
+reg [17:0] reset_cntr;
+
+wire uartRdy;
+reg uartSend;
+reg [7:0] uartData;
+wire uartTX;
+
+//-----------------------------------------------------------------
+// DEBUG
+assign RGB0_Green = uartTX;
+assign RGB1_Green = uartSend;
+//-----------------------------------------------------------------
+
 //
 // reference: https://stackoverflow.com/questions/23507629/parameter-array-in-verilog
 //
+/*
 parameter [8*31 - 1:0] WELCOME_STR = {
     8'h0A, // \n
     8'h0D, // \r
@@ -213,7 +233,41 @@ parameter [8*31 - 1:0] WELCOME_STR = {
     8'h0A, // \n
     8'h0D  // \r
     };
-
+*/
+parameter [8*31 - 1: 0] WELCOME_STR = {
+    8'h0D,  // \r
+    8'h0A, // \n
+    8'h0A, // \n
+    8'h21, // !
+    8'h4F, // O
+    8'h4D, // M
+    8'h45, // E
+    8'h44, // D
+    8'h20, // " "
+    8'h54, // T
+    8'h52, // R
+    8'h41, // A
+    8'h55, // U
+    8'h2F, // /
+    8'h4F, // O
+    8'h49, // I
+    8'h50, // P
+    8'h47, // G
+    8'h20, // " "
+    8'h52, // R
+    8'h44, // D
+    8'h44, // D
+    8'h20, // " "
+    8'h34, // 4
+    8'h53, // S
+    8'h59, // Y
+    8'h58, // X
+    8'h45, // E    
+    8'h4E, // N    
+    8'h0D, // \r
+    8'h0A // \n
+    };
+/*    
 parameter [8*24 - 1: 0] BTN_STR = {
     8'h42,  //B
     8'h75,  //u
@@ -239,7 +293,120 @@ parameter [8*24 - 1: 0] BTN_STR = {
     8'h21,  //!
     8'h0A,  //\n
     8'h0D   //\r
+}; */
 
+parameter [8*24 - 1: 0] BTN_STR = {
+    8'h0D,  //\r
+    8'h0A,  //\n
+    8'h21,  //!
+    8'h64,  //d
+    8'h65,  //e
+    8'h74,  //t
+    8'h63,  //c
+    8'h65,  //e
+    8'h74,  //t
+    8'h65,  //e                                
+    8'h64,  //d
+    8'h20,  //" "
+    8'h73,  //s
+    8'h73,  //s
+    8'h65,  //e
+    8'h72,  //r
+    8'h70,  //p
+    8'h20,  //" "
+    8'h6E,  //n
+    8'h6F,  //o    
+    8'h74,  //t    
+    8'h74,  //t    
+    8'h75,  //u
+    8'h42  //B
 };
+
+initial begin : uart_initialization
+    btnReg = 4'b0000;
+
+    uartState = RST_REG;
+    reset_cntr = 18'b000000000000000000;;
+    
+    uartSend = 1'b0;
+    uartData = 8'b00000000;
+end
+
+always @(posedge CLK)
+begin : reset_cntr_process
+    if ((reset_cntr == RESET_CNTR_MAX) || (uartState != RST_REG)) begin
+        reset_cntr <= 18'b000000000000000000;
+    end else begin
+        reset_cntr <= reset_cntr + 1'b1;
+    end
+end
+
+always @(posedge CLK)
+begin : next_uartState_process
+    if (btnDeBnc[4] == 1'b1) begin
+        uartState <= RST_REG;
+    end else begin
+        case (uartState)
+            RST_REG:    begin
+                            if (reset_cntr == RESET_CNTR_MAX)
+                                uartState <= LD_INIT_STR;
+                        end
+            LD_INIT_STR:    uartState <= SEND_CHAR;
+            SEND_CHAR:      uartState <= RDY_LOW;
+            RDY_LOW:        uartState <= WAIT_RDY;
+            WAIT_RDY:   begin
+                            if (uartRdy == 1'b1) begin
+                                if (strEnd == strIndex)
+                                    uartState <= WAIT_BTN;
+                                else
+                                    uartState <= SEND_CHAR;
+                            end
+                        end
+            WAIT_BTN:   begin
+                            if (btnDetect == 1'b1)
+                                uartState <= LD_BTN_STR;
+                        end
+            LD_BTN_STR: begin
+                            uartState <= SEND_CHAR;
+                        end
+            default:    begin
+                            uartState <= RST_REG;
+                        end
+        endcase
+    end
+end
+
+always @(posedge CLK)
+begin : string_load_process
+    if (uartState == LD_INIT_STR) begin
+        sendStr <= WELCOME_STR;
+        strEnd <= WELCOME_STR_LEN;
+    end else if (uartState == LD_BTN_STR) begin
+        sendStr[BTN_STR_LEN - 1:0] <= BTN_STR;
+        strEnd <= BTN_STR_LEN;
+    end
+end
+
+always @(posedge CLK)
+begin : char_count_process
+    if (uartState == LD_INIT_STR || uartState == LD_BTN_STR)
+        strIndex <= 0;
+    else if (uartState == SEND_CHAR)
+        strIndex <= strIndex + 8;
+end
+
+always @(posedge CLK)
+begin: char_load_process
+    if (uartState == SEND_CHAR) begin
+        uartSend <= 1'b1;
+        uartData <= sendStr[strIndex +: 8];
+    end else begin
+        uartSend <= 1'b0;
+    end
+end
+
+UART_TX_CTRL Inst_UART_TX_CTRL(.SEND(uartSend), .DATA(uartData), .CLK(CLK), .READY(uartRdy), .UART_TX(uartTX));
+
+assign UART_TXD = uartTX;
 
 endmodule
