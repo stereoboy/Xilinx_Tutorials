@@ -77,11 +77,13 @@ initial begin
     SW = 16'b0;
     BTN = 5'b00000;
     
-    #10000000;
+    #100000000;
+
     repeat(1000) begin
-        BTN = 5'b10000; #1000000;
-        BTN = 5'b00000; #1000000; 
-    end    
+        BTN = 5'b10000; #10000000;
+        BTN = 5'b00000; #100000000; 
+    end
+   
 end
 
 endmodule
