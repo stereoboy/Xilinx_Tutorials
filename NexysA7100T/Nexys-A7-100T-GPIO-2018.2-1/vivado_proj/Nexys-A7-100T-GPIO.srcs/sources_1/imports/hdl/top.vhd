@@ -379,33 +379,33 @@ begin
 			uartState <= RST_REG;
 		else	
 			case uartState is 
-			when RST_REG =>
-        if (reset_cntr = RESET_CNTR_MAX) then
-          uartState <= LD_INIT_STR;
-        end if;
-			when LD_INIT_STR =>
-				uartState <= SEND_CHAR;
-			when SEND_CHAR =>
-				uartState <= RDY_LOW;
-			when RDY_LOW =>
-				uartState <= WAIT_RDY;
-			when WAIT_RDY =>
-				if (uartRdy = '1') then
-					if (strEnd = strIndex) then
-						uartState <= WAIT_BTN;
-					else
-						uartState <= SEND_CHAR;
+				when RST_REG =>
+					if (reset_cntr = RESET_CNTR_MAX) then
+						uartState <= LD_INIT_STR;
 					end if;
-				end if;
-			when WAIT_BTN =>
-				if (btnDetect = '1') then
-					uartState <= LD_BTN_STR;
-				end if;
-			when LD_BTN_STR =>
-				uartState <= SEND_CHAR;
-			when others=> --should never be reached
-				uartState <= RST_REG;
-			end case;
+				when LD_INIT_STR =>
+					uartState <= SEND_CHAR;
+				when SEND_CHAR =>
+					uartState <= RDY_LOW;
+				when RDY_LOW =>
+					uartState <= WAIT_RDY;
+				when WAIT_RDY =>
+					if (uartRdy = '1') then
+						if (strEnd = strIndex) then
+							uartState <= WAIT_BTN;
+						else
+							uartState <= SEND_CHAR;
+						end if;
+					end if;
+				when WAIT_BTN =>
+					if (btnDetect = '1') then
+						uartState <= LD_BTN_STR;
+					end if;
+				when LD_BTN_STR =>
+					uartState <= SEND_CHAR;
+				when others=> --should never be reached
+					uartState <= RST_REG;
+				end case;
 		end if ;
 	end if;
 end process;
