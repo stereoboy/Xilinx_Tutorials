@@ -1,0 +1,318 @@
+
+*** Running vivado
+    with args -log design_1_axis2fifo_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axis2fifo_0_0.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+Sourcing tcl script 'C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+0 Beta devices matching pattern found, 0 enabled.
+couldn't read file "./initialize_custom_commands.tcl": no such file or directory
+    while executing
+"source ./initialize_custom_commands.tcl"
+    (file "C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl" line 7)
+INFO: [Common 17-1463] Init.tcl in C:/Users/arthur/AppData/Roaming/Xilinx/Vivado/init.tcl is not used. Vivado_init.tcl is already sourced.
+source design_1_axis2fifo_0_0.tcl -notrace
+Command: synth_design -top design_1_axis2fifo_0_0 -part xc7a100tcsg324-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 21184 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 490.262 ; gain = 101.449
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_axis2fifo_0_0' [d:/Github/Jan19/Nexys-A7-100T-DMA-Audio/proj/Nexys-A7-100T-DMA-Audio.srcs/sources_1/bd/design_1/ip/design_1_axis2fifo_0_0/synth/design_1_axis2fifo_0_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'axis2fifo' [D:/Github/Jan19/Nexys-A7-100T-DMA-Audio/src/hdl/axis2fifo.v:2]
+	Parameter AXIS_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter AXIS_KEEP_WIDTH bound to: 1 - type: integer 
+	Parameter FIFO_DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axis2fifo' (1#1) [D:/Github/Jan19/Nexys-A7-100T-DMA-Audio/src/hdl/axis2fifo.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axis2fifo_0_0' (2#1) [d:/Github/Jan19/Nexys-A7-100T-DMA-Audio/proj/Nexys-A7-100T-DMA-Audio.srcs/sources_1/bd/design_1/ip/design_1_axis2fifo_0_0/synth/design_1_axis2fifo_0_0.v:58]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port clk
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[31]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[30]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[29]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[28]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[27]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[26]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[25]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[24]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[23]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[22]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[21]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[20]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[19]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[18]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[17]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tdata[16]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tkeep[0]
+WARNING: [Synth 8-3331] design axis2fifo has unconnected port axis_tlast
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 545.281 ; gain = 156.469
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 545.281 ; gain = 156.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 545.281 ; gain = 156.469
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Constraints 18-5210] No constraint will be written out.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.092 . Memory (MB): peak = 797.852 ; gain = 1.488
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 797.852 ; gain = 409.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 797.852 ; gain = 409.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 797.852 ; gain = 409.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 797.852 ; gain = 409.039
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[31] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[30] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[29] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[28] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[27] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[26] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[25] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[24] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[23] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[22] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[21] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[20] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[19] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[18] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[17] driven by constant 0
+INFO: [Synth 8-3917] design design_1_axis2fifo_0_0 has port fifo_wr_data[16] driven by constant 0
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port clk
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[31]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[30]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[29]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[28]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[27]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[26]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[25]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[24]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[23]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[22]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[21]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[20]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[19]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[18]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[17]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tdata[16]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tkeep[0]
+WARNING: [Synth 8-3331] design design_1_axis2fifo_0_0 has unconnected port axis_tlast
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 797.852 ; gain = 409.039
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 867.953 ; gain = 479.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 867.953 ; gain = 479.141
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 867.953 ; gain = 479.141
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 869.082 ; gain = 480.270
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 869.082 ; gain = 480.270
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 869.082 ; gain = 480.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 869.082 ; gain = 480.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 869.082 ; gain = 480.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 869.082 ; gain = 480.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     1|
+|2     |LUT2 |     1|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     2|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 869.082 ; gain = 480.270
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 19 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 869.082 ; gain = 227.699
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:36 . Memory (MB): peak = 869.082 ; gain = 480.270
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+29 Infos, 39 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:39 . Memory (MB): peak = 893.457 ; gain = 517.332
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'D:/Github/Jan19/Nexys-A7-100T-DMA-Audio/proj/Nexys-A7-100T-DMA-Audio.runs/design_1_axis2fifo_0_0_synth_1/design_1_axis2fifo_0_0.dcp' has been generated.
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint 'D:/Github/Jan19/Nexys-A7-100T-DMA-Audio/proj/Nexys-A7-100T-DMA-Audio.runs/design_1_axis2fifo_0_0_synth_1/design_1_axis2fifo_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_axis2fifo_0_0_utilization_synth.rpt -pb design_1_axis2fifo_0_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 893.746 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Feb  7 11:13:59 2019...
