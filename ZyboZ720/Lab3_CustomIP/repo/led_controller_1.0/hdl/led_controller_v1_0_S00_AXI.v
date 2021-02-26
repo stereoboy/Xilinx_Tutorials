@@ -4,7 +4,7 @@
 	module led_controller_v1_0_S00_AXI #
 	(
 		// Users to add parameters here
-
+        parameter integer LED_WIDTH = 8,
 		// User parameters ends
 		// Do not modify the parameters beyond this line
 
@@ -15,7 +15,7 @@
 	)
 	(
 		// Users to add ports here
-
+        output wire [LED_WIDTH-1:0] LED,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -398,7 +398,17 @@
 	end    
 
 	// Add user logic here
-
+    lab3_user_logic  # (
+       .LED_WIDTH(LED_WIDTH)
+    )
+    U1(
+       .S_AXI_ACLK(S_AXI_ACLK),
+       .slv_reg_wren(slv_reg_wren),
+       .axi_awaddr(axi_awaddr[C_S_AXI_ADDR_WIDTH-1:ADDR_LSB]),
+       .S_AXI_WDATA(S_AXI_WDATA),
+       .S_AXI_ARESETN(S_AXI_ARESETN),
+       .LED(LED)
+    );
 	// User logic ends
 
 	endmodule

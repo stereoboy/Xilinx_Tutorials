@@ -4,7 +4,7 @@
 	module led_controller_v1_0 #
 	(
 		// Users to add parameters here
-
+		parameter integer LED_WIDTH = 8,
 		// User parameters ends
 		// Do not modify the parameters beyond this line
 
@@ -15,7 +15,7 @@
 	)
 	(
 		// Users to add ports here
-
+        output wire [LED_WIDTH-1:0] LED,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -45,9 +45,11 @@
 	);
 // Instantiation of Axi Bus Interface S00_AXI
 	led_controller_v1_0_S00_AXI # ( 
+	    .LED_WIDTH(LED_WIDTH),
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) led_controller_v1_0_S00_AXI_inst (
+	    .LED(LED),
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),
 		.S_AXI_AWADDR(s00_axi_awaddr),
